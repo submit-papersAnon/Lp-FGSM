@@ -29,6 +29,9 @@ To use the code in this repository, follow these steps:
 
 ## Results
 Our method demonstrates significant improvements in mitigating catastrophic overfitting. Here is a summary of the main results:
+<p align="center">
+  <img src="results_summary.png" alt="Results Summary" />
+</p>
 
 Performance on SVHN Dataset as a Function of $\epsilon$
 
