@@ -1,0 +1,24 @@
+# Core libraries
+numpy>=1.19.2
+tensorflow>=2.4.0
+tensorflow-datasets>=4.2.0
+
+# TensorFlow high-level API for building models
+keras>=2.4.3
+
+# For data preprocessing and image data augmentation
+
+matplotlib>=3.3.2
+
+# Optimizers
+tensorflow-addons>=0.12.0
+
+# Optional: For better experiment tracking and visualization
+tensorboard>=2.4.0
+
+# Optional: For easy and flexible logging of experiments
+absl-py>=0.10.0,<0.14.0
+
+
+# Optional: If using Jupyter notebooks
+jupyter>=1.0.0,<1.1.0
