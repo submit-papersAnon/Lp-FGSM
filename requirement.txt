@@ -17,8 +17,7 @@ tensorflow-addons>=0.12.0
 tensorboard>=2.4.0
 
 # Optional: For easy and flexible logging of experiments
-absl-py>=0.10.0,<0.14.0
-
+absl-py>=0.10.0
 
 # Optional: If using Jupyter notebooks
-jupyter>=1.0.0,<1.1.0
+jupyter>=1.0.0
