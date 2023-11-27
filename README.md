@@ -1,41 +1,38 @@
-# $l^p$-FGSM
-An $l^p$ Norm Solution to Catastrophic Overfitting in Fast Adversarial Training
+# $l^p$-FGSM: An $l^p$ Norm Solution to Catastrophic Overfitting in Fast Adversarial Training
 
 ## Abstract
-Adversarial training, recognized for enhancing the robustness of deep neural networks, faces the challenge of computational cost. Fast adversarial training methodologies, like the Fast Gradient Sign Method (FGSM), are efficient but susceptible to "catastrophic overfitting", leading to models robust against single-step attacks but vulnerable to multi-step variants. This work introduces an $l^p$-norm-based adversarial training framework to address this issue, providing an efficient solution to $l^\infty$ adversarial robustness and effectively mitigating Catastrophic Overfitting.
+Adversarial training enhances the robustness of deep neural networks but often at the cost of increased computational requirements. Fast adversarial training methods like the Fast Gradient Sign Method (FGSM) offer efficiency but are prone to "catastrophic overfitting," resulting in models that withstand single-step attacks yet falter against multi-step variants. Our work, pivoting on the observation that catastrophic overfitting is more prevalent under the $l^\infty$ norm compared to the $l^2$ norm, introduces an $l^p$-norm-based adversarial training framework. This framework effectively addresses $l^\infty$ adversarial robustness and mitigates catastrophic overfitting.
 
 ## Introduction
-This repository contains the implementation of our novel $l^p$-norm-based adversarial training framework. Our approach primarily focuses on overcoming the limitations of existing fast adversarial training methods. By exploring the transition from $l^2$ to $l^\infty$ attacks, we introduce $l^p$-FGSM for creating fast single-step $l^p$ adversarial perturbations.
-The code is in TensorFlow.
+This repository hosts the TensorFlow implementation of our $l^p$-norm-based adversarial training method. By bridging the gap between $l^2$ and $l^\infty$ attacks, we present $l^p$-FGSM for generating efficient single-step $l^p$ adversarial perturbations.
+
 ## Installation
-To install the required dependencies, run:
+Install dependencies via:
 
 ```bash
 pip install -r requirements.txt
 ```
 
 ## Usage
-To use the code in this repository, follow these steps:
-
-1. **Training a Model**: Run `python train_model.py` with the desired parameters. Example:
-
+A self-contained notebook .ipynb is provided to test $l^p$-FGSM interactively. It is also possible to use the different python files as follows:
+1. **Training a Model**: Execute `train_model.py` with desired parameters. For example:
    ```bash
    python train_model.py --dataset CIFAR10 --epochs 30 --eps 8.0 --vareps 1e-12 --p 32.0 
    ```
-
-2. **Evaluating Robustness**: Use `pgd_attack.py` to evaluate the robustness of your trained models against PGD attacks.
-
-3. **Custom Training**: Modify `train_model.py` for custom adversarial training routines.
+2. **Evaluating Robustness**: Use `pgd_attack.py` to assess your model's resilience to PGD attacks.
+3. **Custom Training**: Adapt `train_model.py` for tailored adversarial training procedures.
 
 ## Results
-Our method demonstrates significant improvements in mitigating catastrophic overfitting. Here is a summary of the main results:
+Our approach shows a marked improvement in addressing catastrophic overfitting. Below is a summary of our key findings:
+
 <p align="center">
   <img src="results_summary.png" alt="Results Summary" width=1000/>
 </p>
 
-The tables are reported hereafter:
+Detailed results for different datasets and $\epsilon$ values are as follows:
 
-Performance on SVHN Dataset as a Function of $\epsilon$
+
+### Performance on SVHN Dataset as a Function of $\epsilon$
 
 | $255\cdot\epsilon $ | $l^p$-FGSM | RS-FGSM | N-FGSM | Grad Al | ZeroG |
 |---|---|---|---|---|---|
@@ -47,7 +44,7 @@ Performance on SVHN Dataset as a Function of $\epsilon$
 | 12 | 89.06 ±0.36<br>**36.88 ±1.40** | **92.72 ±0.56**<br>0.0 ±0.0 | 81.49 ±1.66<br>26.17 ±0.88 | 84.12 ±0.44<br>23.64 ±0.42 | 88.11 ±0.47<br>14.16 ±0.38 |
 
 
-Performance on CIFAR-10 Dataset as a Function of $\epsilon$
+### Performance on CIFAR-10 Dataset as a Function of $\epsilon$
 
 | $255\cdot\epsilon $ | $l^p$-FGSM | RS-FGSM | N-FGSM | Grad Al | ZeroG |
 |---|---|---|---|---|---|
@@ -62,7 +59,7 @@ Performance on CIFAR-10 Dataset as a Function of $\epsilon$
 
 
 
-Performance on CIFAR-100 Dataset as a Function of $\epsilon$
+### Performance on CIFAR-100 Dataset as a Function of $\epsilon$
 
 | $255\cdot\epsilon $ | $l^p$-FGSM | RS-FGSM | N-FGSM | Grad Al | ZeroG |
 |---|---|---|---|---|---|
@@ -76,33 +73,30 @@ Performance on CIFAR-100 Dataset as a Function of $\epsilon$
 | 16 | 40.62 ±1.7<br>**18.23 ±1.53** | 21.47 ±5.21<br>0.0 ±0.0 | 38.37 ±0.48<br>14.29 ±0.38 | 36.17 ±0.45<br>14.23 ±0.26 | **56.42 ±0.29**<br>4.92 ±0.38 |
 
 
-
-
 ## Contributing
-Contributions to this project are welcome. Please submit a pull request or open an issue for features or bug fixes.
+We encourage contributions. Please submit pull requests or open issues for enhancements or bug fixes.
 
-## This repository is based on:
-https://github.com/tml-epfl/understanding-fast-adv-training 
+## Related Repositories
+This project builds upon insights from the following works:
 
-https://github.com/rohban-lab/catastrophic_overfitting
-
-https://github.com/pdejorge/N-FGSM 
-
-https://github.com/mahyarnajibi/FreeAdversarialTraining 
-
-
+- [Understanding Fast Adversarial Training](https://github.com/tml-epfl/understanding-fast-adv-training)
+- [Catastrophic Overfitting in FGSM](https://github.com/rohban-lab/catastrophic_overfitting)
+- [N-FGSM: Noise Enhanced Fast Gradient Sign Method](https://github.com/pdejorge/N-FGSM)
+- [Free Adversarial Training](https://github.com/mahyarnajibi/FreeAdversarialTraining)
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Citation
-If you use our method or this codebase in your research, please cite our work:
+If you find our method or this codebase useful in your research, please consider citing:
 
 ```bibtex
-@article{TBA,
+@article{lpFGSM,
   title={An $l^p$ Norm Solution to Catastrophic Overfitting in Fast Adversarial Training},
-  author={TBA},
-  journal={Conference/Journal Name},
+  author={Yours truly et al.},
+  journal={Conference or Journal Name},
   year={2023}
 }
 ```
+
+
