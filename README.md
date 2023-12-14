@@ -14,7 +14,7 @@ pip install -r requirements.txt
 ```
 
 ## Usage
-A self-contained notebook .ipynb is provided to test $l^p$-FGSM interactively. It is also possible to use the different python files as follows:
+A self-contained notebook .ipynb will be provided to test $l^p$-FGSM interactively. It is also possible to use the different python files as follows:
 1. **Training a Model**: Execute `train_model.py` with desired parameters. For example:
    ```bash
    python train_model.py --dataset_name CIFAR10 --epochs 30 --eps 8.0 --p 32.0 --add_noise --weight_decay 5e-4
