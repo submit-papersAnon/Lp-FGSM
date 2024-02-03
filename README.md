@@ -80,10 +80,10 @@ We encourage contributions. Please submit pull requests or open issues for enhan
 ## Related Repositories
 This project builds upon insights from the following works:
 
-- [Understanding Fast Adversarial Training](https://github.com/tml-epfl/understanding-fast-adv-training)
-- [Catastrophic Overfitting in FGSM](https://github.com/rohban-lab/catastrophic_overfitting)
-- [N-FGSM: Noise Enhanced Fast Gradient Sign Method](https://github.com/pdejorge/N-FGSM)
-- [Free Adversarial Training](https://github.com/mahyarnajibi/FreeAdversarialTraining)
+- [Understanding and Improving Fast Adversarial Training](https://github.com/tml-epfl/understanding-fast-adv-training)
+- [ZeroGrad : Mitigating and Explaining Catastrophic Overfitting in FGSM Adversarial Training](https://github.com/rohban-lab/catastrophic_overfitting)
+- [Make Some Noise: Reliable and Efficient Single-Step Adversarial Training](https://github.com/pdejorge/N-FGSM)
+- [Adversarial Training for Free!](https://github.com/mahyarnajibi/FreeAdversarialTraining)
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
@@ -94,9 +94,9 @@ If you find our method or this codebase useful in your research, please consider
 ```bibtex
 @article{lpFGSM,
   title={An $l^p$ Norm Solution to Catastrophic Overfitting in Fast Adversarial Training},
-  author={Yours truly et al.},
-  journal={Conference or Journal Name},
-  year={2023}
+  author={He who remains et al.},
+  journal={TVA},
+  year={2024}
 }
 ```
 
