@@ -23,6 +23,36 @@ The different Python files could be used as follows:
 2. **Evaluating Robustness**: Use `pgd_attack.py` to assess your model's resilience to PGD attacks.
 3. **Custom Training**: Adapt `train_model.py` for tailored adversarial training procedures.
 
+## Review Addendum
+
+#### Enhanced Illustration of Catastrophic Overfitting (CO):
+
+We have improved the depiction of Catastrophic Overfitting (CO) in **Figure 5**. An additional 3D figure has been added to the appendix, introducing an epoch axis to demonstrate the accuracy decrease and the occurrence of CO. This new visualization allows the role of the norm $p$ selection to be observed, highlighting where accuracy declines sharply during training while simultaneously increasing robustness to FGSM.
+
+<p align="center">
+  <img src="results_summary.png" alt="Results Summary" width=1000/>
+</p>
+
+**Figure 11** presents the Evolution of single-step (FGSM) and multi-step (PGD-50) adversarial robustness for the CIFAR-10 dataset. Here, we consider an epsilon value of `8/255` and the WRN-28-8 architecture. The analysis varies across different values of $p$, showcasing the $l^p$ norm's potential in mitigating Catastrophic Overfitting (CO). The onset of CO is marked by a precipitous decline in multi-step adversarial robustness (PGD-50), while single-step robustness (FGSM) sees an upturn. Lower $p$ values mirror the $l^2$ norm's behavior with diminished resilience to $l^\{infty}$ attacks. Conversely, higher $p$ values are more susceptible to CO. Notably, $p$ values in the range of 16 to 32 exhibit resistance to both $l^\{infty}$ attacks and CO.
+
+
+#### AutoAttack results:
+To ensure a comprehensive assessment, we have also included robust accuracy results evaluated with [AutoAttack (AA)](https://github.com/fra31/auto-attack). 
+We present the clean (top) and robust (bottom) accuracies for CIFAR-10 using WRN-28-8, evaluated with AA. The pattern observed is consistent with the results from PGD50, showing a common trend.
+
+###### Table: CIFAR-10 (WRN-28-8) Clean and AutoAttack Accuracy Evaluation
+| Method     | $\epsilon=2/255$  | $\epsilon=4/255$  | $\epsilon=8/255$  | $\epsilon=12/255$ | $\epsilon=16/255$ |
+|------------|---------------|---------------|---------------|---------------|---------------|
+| FGSM       | 0% $\pm$ 0    | 0% $\pm$ 0    | 0% $\pm$ 0    | 0% $\pm$ 0    | 0% $\pm$ 0    |
+| RS-FGSM    | 0% $\pm$ 0    | 0% $\pm$ 0    | 0% $\pm$ 0    | 0% $\pm$ 0    | 0% $\pm$ 0    |
+| N-FGSM     | 0% $\pm$ 0    | 0% $\pm$ 0    | 0% $\pm$ 0    | 0% $\pm$ 0    | 0% $\pm$ 0    |
+| $l^p$-FGSM | 0% $\pm$ 0    | 0% $\pm$ 0    | 0% $\pm$ 0    | 0% $\pm$ 0    | 0% $\pm$ 0    |
+
+The adversarial training models tested include our proposed method, the baseline FGSM, RS-FGSM, N-FGSM(k=2), and our method $ l^p$-FGSM. Across all epsilon levels, Catastrophic Overfitting (CO) is visible, where clean accuracy remains high while robust accuracy drops to zero.
+The consistency of the patterns between PGD50 and AA supports the generality of our findings.
+
+
+
 ## Results
 Our approach shows a marked improvement in addressing catastrophic overfitting. Below is a summary of our key findings:
 
@@ -33,7 +63,7 @@ Our approach shows a marked improvement in addressing catastrophic overfitting. 
 Detailed results for different datasets and $\epsilon$ values are as follows:
 
 
-### Performance on SVHN Dataset as a Function of $\epsilon$
+##### Table: Performance on SVHN Dataset as a Function of $\epsilon$
 
 | $255\cdot\epsilon $ | $l^p$-FGSM | RS-FGSM | N-FGSM | Grad Al | ZeroG |
 |---|---|---|---|---|---|
@@ -45,7 +75,7 @@ Detailed results for different datasets and $\epsilon$ values are as follows:
 | 12 | 89.06 ±0.36<br>**36.88 ±1.40** | **92.72 ±0.56**<br>0.0 ±0.0 | 81.49 ±1.66<br>26.17 ±0.88 | 84.12 ±0.44<br>23.64 ±0.42 | 88.11 ±0.47<br>14.16 ±0.38 |
 
 
-### Performance on CIFAR-10 Dataset as a Function of $\epsilon$
+##### Table: Performance on CIFAR-10 Dataset as a Function of $\epsilon$
 
 | $255\cdot\epsilon $ | $l^p$-FGSM | RS-FGSM | N-FGSM | Grad Al | ZeroG |
 |---|---|---|---|---|---|
@@ -60,7 +90,7 @@ Detailed results for different datasets and $\epsilon$ values are as follows:
 
 
 
-### Performance on CIFAR-100 Dataset as a Function of $\epsilon$
+##### Table: Performance on CIFAR-100 Dataset as a Function of $\epsilon$
 
 | $255\cdot\epsilon $ | $l^p$-FGSM | RS-FGSM | N-FGSM | Grad Al | ZeroG |
 |---|---|---|---|---|---|
