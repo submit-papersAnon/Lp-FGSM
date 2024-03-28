@@ -42,12 +42,13 @@ To ensure a comprehensive assessment, we have also included robust accuracy resu
 We present the clean (top) and robust (bottom) accuracies for CIFAR-10 using WRN-28-8, evaluated with AA. The pattern observed is consistent with the results from PGD50, showing a common trend.
 
 ###### Table: CIFAR-10 (WRN-28-8) Clean and AutoAttack Accuracy Evaluation
-| Method     | $\epsilon=2/255$                      | $\epsilon=4/255$                      | $\epsilon=8/255$                      | $\epsilon=12/255$                     | $\epsilon=16/255$                     |
-|------------|---------------------------------------|---------------------------------------|---------------------------------------|---------------------------------------|---------------------------------------|
-| FGSM       | 90.81 $\pm$ 0.07<br>74.75 $\pm$ 0.11 | 87.86 $\pm$ 0.23<br>61.58 $\pm$ 0.17 | 84.89 $\pm$ 1.20<br>0.00 $\pm$ 0.00  | 80.23 $\pm$ 0.63<br>0.00 $\pm$ 0.00  | 74.61 $\pm$ 0.19<br>0.00 $\pm$ 0.00  |
-| RS-FGSM    | 90.64 $\pm$ 0.12<br>71.47 $\pm$ 0.24  | 86.58 $\pm$ 0.22<br>54.85 $\pm$ 0.16  | 80.14 $\pm$ 0.88<br>35.77 $\pm$ 0.42  | 61.65 $\pm$ 1.32<br>0.00 $\pm$ 0.00    | 69.20 $\pm$ 0.15<br>0.00 $\pm$ 0.00    |
-| N-FGSM     | 89.27 $\pm$ 0.21<br>73.14 $\pm$ 0.68  | 86.34 $\pm$ 0.36<br>59.81 $\pm$ 0.27  | 74.73 $\pm$ 0.46<br>41.65 $\pm$ 0.45  | 62.56 $\pm$ 0.73<br>30.17 $\pm$ 1.16  | 52.89 $\pm$ 0.27<br>22.50 $\pm$ 0.89  |
-| $l^p$-FGSM | 0.0 $\pm$ 0.0<br>0.0 $\pm$ 0.0                | 0.0 $\pm$ 0.0<br>0.0 $\pm$ 0.0                | 0.0 $\pm$ 0.0<br>0.0 $\pm$ 0.0                | 0.0 $\pm$ 0.0<br>0.0 $\pm$ 0.0                | 0.0 $\pm$ 0.0<br>0.0 $\pm$ 0.0                |
+| Method     | $\epsilon=2/255$                   | $\epsilon=4/255$                   | $\epsilon=8/255$                   | $\epsilon=12/255$                  | $\epsilon=16/255$                  |
+|------------|------------------------------------|------------------------------------|------------------------------------|------------------------------------|------------------------------------|
+| FGSM       | 90.81% $\pm$ 0.07<br>74.72% $\pm$ 0.37  | 87.86% $\pm$ 0.23<br>61.58% $\pm$ 0.12  | 84.89% $\pm$ 1.20<br>0.00% $\pm$ 0.00   | 80.23% $\pm$ 0.63<br>0.00% $\pm$ 0.00   | 74.61% $\pm$ 0.19<br>0.00% $\pm$ 0.00   |
+| RS-FGSM    | 90.64% $\pm$ 0.12<br>71.47% $\pm$ 0.44   | 86.58% $\pm$ 0.22<br>54.85% $\pm$ 0.16   | 80.14% $\pm$ 0.88<br>35.77% $\pm$ 0.24  | 61.65% $\pm$ 1.32<br>0.00% $\pm$ 0.00    | 69.20% $\pm$ 0.15<br>0.00% $\pm$ 0.00    |
+| N-FGSM     | 89.27% $\pm$ 0.21<br>73.14% $\pm$ 0.68   | 86.34% $\pm$ 0.36<br>59.81% $\pm$ 0.27   | 74.73% $\pm$ 0.46<br>41.65% $\pm$ 0.45  | 62.56% $\pm$ 0.73<br>30.17% $\pm$ 1.16  | 52.89% $\pm$ 0.27<br>22.50% $\pm$ 0.89   |
+| $l^p$-FGSM | 90.21% $\pm$ 0.34<br>74.14% $\pm$ 0.52        | 86.96% $\pm$ 0.28<br>60.17% $\pm$ 0.18        | 77.81% $\pm$ 0.65<br>41.81% $\pm$ 0.62   | 70.88% $\pm$ 0.83<br>31.03% $\pm$ 0.87  | 57.98% $\pm$ 0.44<br>25.02% $\pm$ 0.56   |
+
 
 
 The adversarial training models tested include our proposed method, the baseline FGSM, RS-FGSM, N-FGSM(k=2), and our method $ l^p$-FGSM. Across all epsilon levels, Catastrophic Overfitting (CO) is visible, where clean accuracy remains high while robust accuracy drops to zero.
