@@ -30,7 +30,7 @@ The different Python files could be used as follows:
 We have improved the depiction of Catastrophic Overfitting (CO) in **Figure 5**. An additional 3D figure has been added to the appendix, introducing an epoch axis to demonstrate the accuracy decrease and the occurrence of CO. This new visualization allows the role of the norm $p$ selection to be observed, highlighting where accuracy declines sharply during training while simultaneously increasing robustness to FGSM.
 
 <p align="center">
-  <img src="3dFig5_mod_pdf" alt="Catastrophic Overfitting (CO) as a function of $p$ and training epoch." width=600/>
+  <img src="3dFig5_mod_.pdf" alt="Catastrophic Overfitting (CO) as a function of $p$ and training epoch." width=600/>
 </p>
 
 **Figure 11** presents the Evolution of single-step (FGSM) and multi-step (PGD-50) adversarial robustness for the CIFAR-10 dataset. Here, we consider an epsilon value of `8/255` and the WRN-28-8 architecture. The analysis varies across different values of $p$, showcasing the $l^p$ norm's potential in mitigating Catastrophic Overfitting (CO). The onset of CO is marked by a precipitous decline in multi-step adversarial robustness (PGD-50), while single-step robustness (FGSM) sees an upturn. Lower $p$ values mirror the $l^2$ norm's behavior with diminished resilience to $l^\{infty}$ attacks. Conversely, higher $p$ values are more susceptible to CO. Notably, $p$ values in the range of 16 to 32 exhibit resistance to both $l^\{infty}$ attacks and CO.
